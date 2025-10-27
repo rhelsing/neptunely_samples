@@ -1,0 +1,12 @@
+# Cache headers for Neptunely sample files
+# GitHub Pages will apply these headers to all matching files
+
+# Cache all .wav files aggressively (1 year, immutable)
+/*.wav
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Cache headers for subdirectory .wav files
+/*/*.wav
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
