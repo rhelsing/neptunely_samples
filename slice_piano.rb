@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'json'
 
 # Sample slicer
 # Slices input file into individual samples based on configurable parameters.
@@ -20,6 +21,7 @@
 #   Creates folder named after input file (without extension)
 #   Files named: <note><octave>_v<low>-<high>.mp3
 #   Each sample has 0.05s attack, fade out starting at 3/4 through
+#   Generates index.json with notes array and velocityRanges array
 #
 # Examples:
 #
@@ -124,3 +126,17 @@ VELOCITY_RANGES.each do |velocity|
 end
 
 puts "\nDone! Extracted #{segment_index} samples to #{OUTPUT_DIR}/"
+
+# Generate index.json
+# Notes sorted by note name, then octave (matching big_piano format)
+all_notes = NOTES.flat_map { |note| OCTAVES.map { |oct| "#{note}#{oct}" } }
+# Velocity ranges without "v" prefix
+json_velocity_ranges = VELOCITY_RANGES.map { |v| v.sub("v", "") }
+
+index = {
+  notes: all_notes,
+  velocityRanges: json_velocity_ranges
+}
+
+File.write("#{OUTPUT_DIR}/index.json", JSON.pretty_generate(index))
+puts "Generated #{OUTPUT_DIR}/index.json"
