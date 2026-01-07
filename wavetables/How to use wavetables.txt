@@ -1,0 +1,15 @@
+Serum:
+
+Place the PH Synthwave Wavetable folder in your Serum Tables directory. They will now be available the next time you open Serum.
+
+Ableton Wavetable:
+
+Drag a wavetable onto one of the oscillators. You need to make sure "Raw" is ticked or the wavetable will not load correctly. You can now browse the folder inside the Ableton Wavetable synth.
+
+Vital:
+
+Drag a wavetable onto an OSC's wavetable display. Make sure you select "Wavetable" as you do this. (Full set of Vital-ready wavetables coming soon).
+
+Go to www.producerhive.com for more great sample packs and deep-dives on music production!
+
+Thanks to MGF Audio for recording and preparing these synth wavetables. www.mgfaudio.com
